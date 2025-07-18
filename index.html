@@ -22,67 +22,109 @@
         </header>
 
         <div class="main-content">
-            <div class="card">
-                <h2>Plan Your Perfect Trip</h2>
-                < class="success-message" id="successMessage">
-                    Trip planned successfully! Check your itinerary below.
-                </<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelMate - Your Trip Planning Companion</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="floating-elements">
-        <div class="floating-element">✈️</div>
-        <div class="floating-element">🏖️</div>
-        <div class="floating-element">🏔️</div>
-        <div class="floating-element">🏛️</div>
-        <div class="floating-element">🌴</div>
-    </div>
-
-    <div class="container">
-        <header>
-            <div class="logo">Welcome to TravelMate</div>
-            <div class="tagline">Your Ultimate Trip Planning Companion</div>
-        </header>
-
-        <div class="main-content">
             <!-- 1. Popular Destinations -->
             <div class="card" style="grid-column: 1 / -1;">
                 <h2>Popular Destinations</h2>
                 <div class="destination-suggestions">
+                    <div class="destination-card" onclick="selectDestination('amristar')">
+                        <h3>Golden Temple</h3>
+                        <img src="/images/golden temple.jpg" alt="Amristar">
+                        <p>Golden Devotion, Punjabi Emotion</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('darjeeling')">
+                        <h3>Darjeeling</h3>
+                        <img src="/images/darjeeling.jpg" alt="darjeeling">
+                        <p>Tea, Tranquility, and Toy Trains</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('delhi')">
+                        <h3>Delhi</h3>
+                        <img src="/images/delhi.jpg" alt="Delhi">
+                        <p>Where History Meets Hustle</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('gangtok')">
+                        <h3>Gangtok</h3>
+                        <img src="/images/gangtok.jpg" alt="Gangtok">
+                        <p>Where Clouds Touch Monasteries</p>
+                    </div>
                     <div class="destination-card" onclick="selectDestination('goa')">
                         <h3>Goa</h3>
-                        <img src="/images/goa.jpg" alt="Goa" width="200x">
+                        <img src="/images/goa.jpg" alt="Goa">
                         <p>Sun, Sand, and Soul</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('gulmarg')">
+                        <h3>Gulmarg</h3>
+                        <img src="/images/gulmarg.jpg" alt="Gulmarg">
+                        <p>Where Snow Falls Like Magic</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('hyderabad')">
+                        <h3>Hyderabad</h3>
+                        <img src="/images/hyderabad.jpg" alt="hyderabad">
+                        <p>Where Biryani Meets Bytes</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('jaipur')">
+                        <h3>Jaipur</h3>
+                        <img src="/images/jaipur.jpg" alt="jaipur">
+                        <p>The Pink City of Royal Splendor</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('kochi')">
+                        <h3>Kochi</h3>
+                        <img src="/images/kochi.jpg" alt="kochi">
+                        <p>The Queen of the Arabian Sea</p>
                     </div>
                     <div class="destination-card" onclick="selectDestination('Leh-Ladakh')">
                         <h3>Leh-Ladakh</h3>
-                        <img src="/images/leh ladakh.jpg" alt="Leh-Ladakh" width="200x">
+                        <img src="/images/leh ladakh.jpg" alt="Leh-Ladakh">
                         <p>Land of High Passes and Higher Spirits</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('manali')">
+                        <h3>Manali</h3>
+                        <img src="/images/manali.jpg" alt="manali">
+                        <p>Adventure in Every Breaths</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('mumbai')">
+                        <h3>Mumbai</h3>
+                        <img src="/images/mumbai.jpg" alt="mumbai">
+                        <p>The City That Never Sleeps</p>
                     </div>
                     <div class="destination-card" onclick="selectDestination('munnar')">
                         <h3>Munnar</h3>
-                        <img src="/images/munnar.jpg" alt="Munnar" width="200x">
+                        <img src="/images/munnar.jpg" alt="Munnar">
                         <p>Where the Tea Gardens Whisper</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('mysore')">
+                        <h3>Mysore</h3>
+                        <img src="/images/mysore.jpg" alt="mysore">
+                        <p>Royal Heritage, Serene Spirits</p>
+                    </div>
+                    <div class="destination-card" onclick="selectDestination('pondicherry')">
+                        <h3>Pondicherry</h3>
+                        <img src="/images/pondicherry.jpg" alt="pondicherry">
+                        <p>Where French Vibes Meet Indian Tides</p>
                     </div>
                     <div class="destination-card" onclick="selectDestination('rishikesh')">
                         <h3>Rishikesh</h3>
-                        <img src="/images/rishikesh.jpg" alt="Rishikesh" width="200x">
+                        <img src="/images/rishikesh.jpg" alt="Rishikesh">
                         <p>Yoga Capital of the World</p>
+                    </div>
+                     <div class="destination-card" onclick="selectDestination('shimla')">
+                        <h3>Shimla</h3>
+                        <img src="/images/shimla.jpg" alt="Shimla">
+                        <p>Venice of the East</p>
+                    </div>
+                     <div class="destination-card" onclick="selectDestination('tamilnadu')">
+                        <h3>Tamil Nadu</h3>
+                        <img src="/images/tamilnadu.jpg" alt="tamilnadu">
+                        <p>Venice of the East</p>
                     </div>
                     <div class="destination-card" onclick="selectDestination('udaipur')">
                         <h3>Udaipur</h3>
-                        <img src="/images/udaipur.jpg" alt="Udaipur" width="200x">
+                        <img src="/images/udaipur.jpg" alt="Udaipur">
                         <p>Venice of the East</p>
                     </div>
                     <div class="destination-card" onclick="selectDestination('varanasi')">
                         <h3>Varanasi</h3>
-                        <img src="/images/varanasi.jpg" alt="Varanasi" width="200x">
-                        <p>Soul of India, On the Banks of the Ganga</p>
+                        <img src="/images/varanasi.jpg" alt="Varanasi">
+                        <p>Soul of India, On the Banks of Ganga</p>
                     </div>
                 </div>
             </div>
@@ -99,9 +141,11 @@
                         <select id="destination" required>
                             <option value="">Select a destination</option>
                             <option value="amristar">Golden Temple, Amristar</option>
-                            <option value="delhi">Delhi & Agra</option>
                             <option value="darjeeling">Darjeeling</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="gangtok">Gangtok</option>
                             <option value="goa">Goa</option>
+                            <option value="gulmarg">Gulmarg</option>
                             <option value="hyderabad">Hyderabad</option>
                             <option value="jaipur">Jaipur</option>
                             <option value="kochi">Kochi</option>
@@ -130,7 +174,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="budget">Budget (USD)</label>
+                        <label for="budget">Budget</label>
                         <input type="number" id="budget" placeholder="Enter your budget" required>
                     </div>
 
@@ -183,152 +227,6 @@
         </div>
 
         <!-- Results Section -->
-        <div class="results" id="results">
-            <div class="card">
-                <h2>Your Trip Itinerary</h2>
-                <div class="itinerary-section" id="itinerary">
-                    <!-- Itinerary will be populated here -->
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Budget Breakdown</h2>
-                <div class="budget-section" id="budgetBreakdown">
-                    <!-- Budget breakdown will be populated here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-div>
-                <div class="error-message" id="errorMessage">
-                    Please fill in all required fields.
-                </div>
-                
-                <form id="tripForm">
-                    <div class="form-group">
-                        <label for="destination">Destination</label>
-                        <select id="destination" required>
-                            <option value="">Select a destination</option>
-                            <option value="amristar">Golden Temple,Amristar</option>
-                            <option value="delhi">Delhi & Agra</option>
-                            <option value="darjeeling">Darjeeling</option>
-                            <option value="goa">Goa</option>
-                            <option value="hyderabad">Hyderabad</option>
-                            <option value="jaipur">Jaipur</option>
-                            <option value="kochi">kochi</option>
-                            <option value="Leh-Ladakh">Leh-Ladakh</option>
-                            <option value="manali">Manali</option>
-                            <option value="mumbai">Mumbai</option>
-                            <option value="munnar">Munnar</option>
-                            <option value="mysore">Mysore</option>
-                            <option value="pondicherry">Pondicherry</option>
-                            <option value="rishikesh">Rishikesh</option>
-                            <option value="shimla">Shimla</option>
-                            <option value="tamilnadu">Tamil Nadu</option>
-                            <option value="udaipur">Udaipur</option>
-                            <option value="varnasi">Varnasi</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="startDate">Start Date</label>
-                        <input type="date" id="startDate" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="endDate">End Date</label>
-                        <input type="date" id="endDate" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="budget">Budget (USD)</label>
-                        <input type="number" id="budget" placeholder="Enter your budget" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="travelers">Number of Travelers</label>
-                        <select id="travelers" required>
-                            <option value="">Select number</option>
-                            <option value="1">1 Traveler</option>
-                            <option value="2">2 Travelers</option>
-                            <option value="3">3 Travelers</option>
-                            <option value="4">4 Travelers</option>
-                            <option value="5+">5+ Travelers</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="interests">Travel Interests</label>
-                        <select id="interests" required>
-                            <option value="">Select your interests</option>
-                            <option value="culture">Culture & History</option>
-                            <option value="adventure">Adventure & Outdoor</option>
-                            <option value="relaxation">Relaxation & Beaches</option>
-                            <option value="food">Food & Culinary</option>
-                            <option value="nightlife">Nightlife & Entertainment</option>
-                            <option value="family">Family Friendly</option>
-                            <option value="luxury">Luxury & Spa</option>
-                            <option value="budget">Budget Travel</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn">Plan My Trip</button>
-                </form>
-
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                    <p>Planning your perfect trip...</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Popular Destinations</h2>
-                <div class="destination-suggestions">
-                    <div class="destination-card" onclick="selectDestination('goa')">
-                        <h3>Goa</h3>
-                        <img src="/images/goa.jpg" alt="Goa" width="200x">
-                        <p>Sun, Sand, and Soul</p>
-                    </div>
-                    <div class="destination-card" onclick="selectDestination('Leh-Ladakh')">
-                        <h3>Leh-Ladakh</h3>
-                        <img src="/images/leh ladakh.jpg" alt="Leh-Ladakh" width="200x">
-                        <p>Land of High Passes and Higher Spirits</p>
-                    </div>
-                    <div class="destination-card" onclick="selectDestination('munnar')">
-                        <h3>Munnar</h3>
-                        <img src="/images/munnar.jpg" alt="Munnar" width="200x">
-                        <p>Where the Tea Gardens Whisper</p>
-                    </div>
-                    <div class="destination-card" onclick="selectDestination('rishikesh')">
-                        <h3>Rishikesh</h3>
-                        <img src="/images/rishikesh.jpg" alt="Rishikesh" width="200x">
-                        <p>Yoga Capital of the World</p>
-                    </div>
-                    <div class="destination-card" onclick="selectDestination('udaipur')">
-                        <h3>Udaipur</h3>
-                        <img src="/images/udaipur.jpg" alt="Udaipur" width="200x">
-                        <p>Venice of the East</p>
-                    </div>
-                    <div class="destination-card" onclick="selectDestination('varanasi')">
-                        <h3>Varanasi</h3>
-                        <img src="/images/varanasi.jpg" alt="Varanasi" width="200x">
-                        <p>Soul of India, On the Banks of the Ganga</p>
-                    </div>
-                </div>
-
-                <div class="map-container">
-                    <div class="map-placeholder" id="mapPlaceholder">
-                        🗺️ Interactive Map<br>
-                        <small>Select a destination to view location</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="results" id="results">
             <div class="card">
                 <h2>Your Trip Itinerary</h2>
