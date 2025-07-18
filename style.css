@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #d7fa6f 0%, #69f675 100%);
     min-height: 100vh;
     color: #333;
 }
@@ -20,7 +20,7 @@ body {
 header {
     text-align: center;
     margin-bottom: 40px;
-    color: white;
+    color: rgba(255, 255, 255, 0.897);
 }
 
 .logo {
@@ -53,7 +53,7 @@ header {
 }
 
 .card h2 {
-    color: #5a67d8;
+    color: #4edd8a;
     margin-bottom: 20px;
     font-size: 1.5em;
 }
@@ -80,7 +80,7 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: #5a67d8;
+    border-color: #020417;
     box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.1);
 }
 
@@ -183,7 +183,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .destination-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #bfed77 0%, #764ba2 100%);
     color: white;
     padding: 20px;
     border-radius: 10px;
