@@ -206,6 +206,14 @@ input:focus, select:focus, textarea:focus {
     font-size: 0.9em;
 }
 
+.destination-card img {
+    width: 200px;       
+    height: 150px;     
+    object-fit: cover;  
+    display: block;    
+    margin: auto;       
+}
+
 .results {
     margin-top: 30px;
     display: none;
