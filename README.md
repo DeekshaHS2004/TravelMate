@@ -1,1 +1,2 @@
 # TravelMate
+<p>A user-friendly and responsive web application designed to help users plan their trips with ease. It allows users to select destinations, set travel dates, view suggested itineraries, and estimate budgets. Built using HTML, CSS, and JavaScript, the project offers an interactive interface with dynamic elements and map integration. Ideal for showcasing front-end skills, TravelMate simplifies the trip planning experience with an intuitive layout and clean design. </p>
