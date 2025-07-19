@@ -9,7 +9,7 @@ body {
     background: linear-gradient(135deg, #131313  0%, #194f1e 30%, #131313 100%);
     /*background-image: url('images/travel\ background.jpeg');*/
     min-height: 100vh;
-    color: #333/
+    color: #333
 }
 
 .container {
@@ -87,7 +87,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .btn {
-    background: linear-gradient(135deg,#b73bb7);
+    background: linear-gradient(135deg,#db51db);
     color: white;
     padding: 12px 30px;
     border: none;
