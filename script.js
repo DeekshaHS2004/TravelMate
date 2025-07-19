@@ -1,5 +1,3 @@
-// TravelMate Script - Interactive Trip Planning
-
 // Destination data with detailed information
 const destinationData = {
     amristar: {
@@ -174,6 +172,9 @@ function initializeApp() {
     const destinationSelect = document.getElementById('destination');
     const startDateInput = document.getElementById('startDate');
     const endDateInput = document.getElementById('endDate');
+
+    // Initialize the map
+    setTimeout(initializeMap, 500); // Small delay to ensure DOM is ready
 
     // Set minimum date to today
     const today = new Date().toISOString().split('T')[0];
@@ -401,18 +402,167 @@ function generateBudgetBreakdown(destination, days, travelers, totalBudget) {
     `;
 }
 
+// Map functionality
+let map = null;
+let currentMarker = null;
+
+function initializeMap() {
+    // Check if Leaflet is loaded
+    if (typeof L === 'undefined') {
+        // Load Leaflet dynamically
+        const leafletCSS = document.createElement('link');
+        leafletCSS.rel = 'stylesheet';
+        leafletCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css';
+        document.head.appendChild(leafletCSS);
+
+        const leafletJS = document.createElement('script');
+        leafletJS.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+        leafletJS.onload = function() {
+            createMap();
+        };
+        document.head.appendChild(leafletJS);
+    } else {
+        createMap();
+    }
+}
+
+function createMap() {
+    const mapContainer = document.querySelector('.map-container');
+    
+    // Replace placeholder with actual map div
+    mapContainer.innerHTML = '<div id="map" style="width: 100%; height: 100%; border-radius: 10px;"></div>';
+    
+    // Initialize map centered on India
+    map = L.map('map').setView([20.5937, 78.9629], 5);
+    
+    // Add tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Add info panel
+    const infoPanel = document.createElement('div');
+    infoPanel.id = 'map-info';
+    infoPanel.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        z-index: 1000;
+        max-width: 250px;
+        font-size: 14px;
+    `;
+    infoPanel.innerHTML = `
+        <div style="text-align: center; color: #718096;">
+            📍 Select a destination to view location
+        </div>
+    `;
+    mapContainer.appendChild(infoPanel);
+    
+    // Add all destination markers
+    addAllDestinationMarkers();
+}
+
+function addAllDestinationMarkers() {
+    Object.keys(destinationData).forEach(key => {
+        const destination = destinationData[key];
+        const marker = L.marker([destination.coordinates.lat, destination.coordinates.lng])
+            .addTo(map)
+            .bindPopup(`
+                <div style="text-align: center;">
+                    <h3>${destination.name}</h3>
+                    <p><strong>Best time:</strong> ${destination.bestTime}</p>
+                    <p><strong>Avg cost:</strong> ₹${destination.avgCostPerDay.toLocaleString()}/day</p>
+                    <button onclick="selectDestination('${key}')" style="
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 12px;
+                        margin-top: 8px;
+                    ">Select Destination</button>
+                </div>
+            `);
+        
+        marker.on('click', function() {
+            updateMapInfo(key);
+        });
+    });
+}
+
 function updateMap(destinationKey) {
-    const mapPlaceholder = document.getElementById('mapPlaceholder');
     const destination = destinationData[destinationKey];
     
-    if (destination) {
-        mapPlaceholder.innerHTML = `
-            🗺️ ${destination.name}<br>
-            <small style="margin-top: 10px; display: block;">
-                📍 Coordinates: ${destination.coordinates.lat}, ${destination.coordinates.lng}<br>
-                🌟 Best time to visit: ${destination.bestTime}<br>
-                💰 Avg cost per day: ₹${destination.avgCostPerDay.toLocaleString()}
-            </small>
+    if (!destination) return;
+    
+    // Initialize map if not already done
+    if (!map) {
+        initializeMap();
+        // Wait for map to load, then update
+        setTimeout(() => updateMap(destinationKey), 1000);
+        return;
+    }
+    
+    // Center map on destination
+    map.setView([destination.coordinates.lat, destination.coordinates.lng], 10);
+    
+    // Remove current marker if exists
+    if (currentMarker) {
+        map.removeLayer(currentMarker);
+    }
+    
+    // Add new marker with custom icon
+    const customIcon = L.divIcon({
+        className: 'custom-marker',
+        html: `
+            <div style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                border: 3px solid white;
+            ">📍</div>
+        `,
+        iconSize: [36, 36],
+        iconAnchor: [18, 18]
+    });
+    
+    currentMarker = L.marker([destination.coordinates.lat, destination.coordinates.lng], {
+        icon: customIcon
+    }).addTo(map);
+    
+    updateMapInfo(destinationKey);
+}
+
+function updateMapInfo(destinationKey) {
+    const destination = destinationData[destinationKey];
+    const infoPanel = document.getElementById('map-info');
+    
+    if (destination && infoPanel) {
+        infoPanel.innerHTML = `
+            <div style="text-align: center;">
+                <h3 style="margin: 0 0 10px 0; color: #4a5568;">${destination.name}</h3>
+                <div style="text-align: left; color: #718096;">
+                    <p style="margin: 5px 0;"><strong>📍 Location:</strong><br>${destination.coordinates.lat}, ${destination.coordinates.lng}</p>
+                    <p style="margin: 5px 0;"><strong>🌟 Best time:</strong><br>${destination.bestTime}</p>
+                    <p style="margin: 5px 0;"><strong>💰 Avg cost:</strong><br>₹${destination.avgCostPerDay.toLocaleString()}/day</p>
+                    <p style="margin: 5px 0;"><strong>🎯 Top attractions:</strong></p>
+                    <ul style="margin: 5px 0; padding-left: 15px; font-size: 12px;">
+                        ${destination.attractions.slice(0, 3).map(attraction => `<li>${attraction}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
         `;
     }
 }
