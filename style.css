@@ -6,9 +6,10 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #d7fa6f 0%, #69f675 100%);
+    background: linear-gradient(135deg, #131313  0%, #194f1e 30%, #131313 100%);
+    /*background-image: url('images/travel\ background.jpeg');*/
     min-height: 100vh;
-    color: #333;
+    color: #333/
 }
 
 .container {
@@ -45,7 +46,7 @@ header {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(25, 24, 24, 0.95);
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -54,7 +55,7 @@ header {
 }
 
 .card h2 {
-    color: #4edd8a;
+    color: #bd42b7;
     margin-bottom: 20px;
     font-size: 1.5em;
 }
@@ -73,7 +74,7 @@ label {
 input, select, textarea {
     width: 100%;
     padding: 12px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #9eabbb;
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
@@ -86,7 +87,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg,#b73bb7);
     color: white;
     padding: 12px 30px;
     border: none;
@@ -108,7 +109,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .map-container {
-    height: 300px;
+    height: 500px;
     background: linear-gradient(45deg, #f0f4f8, #e2e8f0);
     border-radius: 10px;
     display: flex;
@@ -207,7 +208,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .destination-card img {
-    width: 200px;       
+    width: 191px;       
     height: 150px;     
     object-fit: cover;  
     display: block;    
